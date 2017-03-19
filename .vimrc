@@ -46,6 +46,7 @@ nnoremap <leader>l <C-w>l
 nnoremap <leader>a :tabprevious<CR>
 nnoremap <leader>f :tabnext<CR>
 nnoremap <leader>o :tabe<CR>
+nnoremap <leader>p :set invpaste paste?<CR>
 
 syntax enable
 set background=dark

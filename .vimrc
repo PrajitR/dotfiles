@@ -7,7 +7,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'morhetz/gruvbox'
 
 " All of your Plugins must be added before the following line
@@ -51,3 +50,14 @@ nnoremap <leader>p :set invpaste paste?<CR>
 syntax enable
 set background=dark
 colorscheme gruvbox
+
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
